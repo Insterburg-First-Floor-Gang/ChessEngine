@@ -7,13 +7,13 @@
 #include "tile_index.h"
 
 class KnightLookUpTable {
- private:
+private:
   bitmap_t psudo_legal_moves[64];
   KnightLookUpTable();
 
- public:
-  KnightLookUpTable(KnightLookUpTable const&) = delete;
-  KnightLookUpTable& operator=(KnightLookUpTable const&) = delete;
+public:
+  KnightLookUpTable(KnightLookUpTable const &) = delete;
+  KnightLookUpTable &operator=(KnightLookUpTable const &) = delete;
 
   inline bitmap_t operator[](const tile_index_t tile_index) const {
     assert(tile_index >= 0);
@@ -21,5 +21,5 @@ class KnightLookUpTable {
     return psudo_legal_moves[tile_index];
   }
 
-  static const KnightLookUpTable& get();
+  static const KnightLookUpTable &get();
 };
